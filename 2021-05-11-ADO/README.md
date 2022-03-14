@@ -20,6 +20,29 @@ Admittedly, that's a lot of stuff for a pipeline, but we don't have to do everyt
 
 Before I set up the pipeline, I'm going to need an Azure Storage Account and Azure Key Vault. I'm also going to need to configure the pipeline with access to the Key Vault. Not sure if I can do that through Terraform or if I'll need to do it after the fact. Within ADO, I'm going to need a project for the pipeline to live in, and that project will need to be wired to a GitHub repo where my code is stored. Not sure if I can do any of that with Terraform, but I'll check it out. The results will be in the setup folder in this directory.
 
+    az storage account keys list -g azurek8stest -n terraformstatestoacc
+        {
+            "creationTime": "2022-03-14T11:38:09.134827+00:00",
+            "keyName": "key1",
+            "permissions": "FULL",
+            "value": "vNAlH3kV6xp62aPz4vdPuD1Ba3LV30+F5nOIcx0ipBZCb32m59QWLUmEbSly4FwS/L8NJFfJmPZBXetwlSkNjA=="
+        },
+
+    az ad sp create-for-rbac --name tftuesdays --role contributor --scopes /subscriptions/df762d06-9685-438e-aed0-d55b807198a7
+        {
+        "appId": "fe40b964-81a6-42f6-8f0e-e205c8c9a4b9",
+        "displayName": "tftuesdays",
+        "password": "cZFkJ83-hOsPGWLxlTLTELG37U2hhKvc-H",
+        "tenant": "b7540979-5063-4ba1-a9a0-49b436141ffb"
+        }
+    GIThub
+        Personal Access Token:
+        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
+    azure DevOps
+        organization: ned-in-the-cloud
+        access token name: terraform-cli
+            secret: dti76qvk57nskltomjemqbayuxzm2jbfelmtbecljhzgbckglpxa
+
 *An indeterminate amount of time later*
 
 Okay, it looks like I can create a project, GitHub service connection, and pipeline all through Terraform. Excellent! If you're following along, you'll notice I'm using the Terraform Cloud backend. You're going to need to set some variables and environment variables for your workspace to make it all hum. I'll list those out below.
