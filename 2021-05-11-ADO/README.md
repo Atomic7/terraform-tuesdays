@@ -27,6 +27,11 @@ Before I set up the pipeline, I'm going to need an Azure Storage Account and Azu
             "permissions": "FULL",
             "value": "vNAlH3kV6xp62aPz4vdPuD1Ba3LV30+F5nOIcx0ipBZCb32m59QWLUmEbSly4FwS/L8NJFfJmPZBXetwlSkNjA=="
         },
+        blob sas token: 
+            sp=r&st=2022-03-14T15:57:15Z&se=2022-03-14T23:57:15Z&spr=https&sv=2020-08-04&sr=c&sig=abqTr%2FzAHrQFn06MzICcZ4bB3pgFtc%2FLK41Ogtlyvmo%3D
+        sas sas url:
+            https://terraformstatestoacc.blob.core.windows.net/terraform-state?sp=r&st=2022-03-14T15:57:15Z&se=2022-03-14T23:57:15Z&spr=https&sv=2020-08-04&sr=c&sig=abqTr%2FzAHrQFn06MzICcZ4bB3pgFtc%2FLK41Ogtlyvmo%3D
+
 
     az ad sp create-for-rbac --name tftuesdays --role contributor --scopes /subscriptions/df762d06-9685-438e-aed0-d55b807198a7
         {
@@ -38,10 +43,13 @@ Before I set up the pipeline, I'm going to need an Azure Storage Account and Azu
     GIThub
         Personal Access Token:
         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
+    
     azure DevOps
         organization: ned-in-the-cloud
-        access token name: terraform-cli
-            secret: dti76qvk57nskltomjemqbayuxzm2jbfelmtbecljhzgbckglpxa
+        access token name: terraform-cli-2
+            secret: t46atx3mm3u25kzxm26cbrajv5p2pv3qcxfxfzk4hfnmuliu2g4q
+
+    azure DevOps 
 
 *An indeterminate amount of time later*
 

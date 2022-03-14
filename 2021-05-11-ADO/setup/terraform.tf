@@ -21,7 +21,7 @@ terraform {
     organization = "my-ned-in-the-cloud"
 
     workspaces {
-      name = "terraform-tuesdays"
+      name = "terraform-tuesday-ado-setup"
     }
   }
 }

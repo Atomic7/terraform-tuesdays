@@ -2,7 +2,7 @@ terraform {
   required_providers {
     azuredevops = {
       source  = "microsoft/azuredevops"
-      version = ">=0.1.0"
+      version = ">=0.1.4"
     }
 
     azurerm = {
@@ -18,10 +18,10 @@ terraform {
 
   }
   backend "remote" {
-    organization = "ned-in-the-cloud"
+    organization = "my-ned-in-the-cloud"
 
     workspaces {
-      name = "terraform-tuesday-ado-setup"
+      name = "terraform-tuesdays"
     }
   }
 }

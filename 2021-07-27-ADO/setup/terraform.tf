@@ -18,7 +18,7 @@ terraform {
 
   }
   backend "remote" {
-    organization = "ned-in-the-cloud"
+    organization = "my-ned-in-the-cloud"
 
     workspaces {
       name = "terraform-tuesday-ado-setup"

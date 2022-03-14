@@ -37,6 +37,11 @@ variable "prefix" {
 ###########################
 
 provider "azurerm" {
+  subscription_id = "df762d06-9685-438e-aed0-d55b807198a7"
+  client_id       = "fe40b964-81a6-42f6-8f0e-e205c8c9a4b9"
+  client_secret   = "cZFkJ83-hOsPGWLxlTLTELG37U2hhKvc-H"
+  tenant_id       = "b7540979-5063-4ba1-a9a0-49b436141ffb"
+  
   features {}
 }
 
@@ -67,8 +72,10 @@ module "network" {
   resource_group_name = azurerm_resource_group.vnet.name
   vnet_name           = local.name
   address_space       = "10.0.0.0/16"
-  subnet_prefixes     = ["10.0.0.0/24","10.0.2.0/24","10.0.3.0/24"]
-  subnet_names        = ["subnet1", "subnet2","subnet3"]
+  subnet_prefixes     = ["10.0.0.0/24","10.0.2.0/24"]
+  subnet_names        = ["subnet1", "subnet2"]
+  // subnet_prefixes     = ["10.0.0.0/24","10.0.2.0/24","10.0.4.0/24"]
+  // subnet_names        = ["subnet1", "subnet2","subnet4"]
 
   depends_on = [azurerm_resource_group.vnet]
 }

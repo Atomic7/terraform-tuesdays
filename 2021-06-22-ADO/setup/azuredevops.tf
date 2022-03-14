@@ -3,6 +3,7 @@
 provider "azuredevops" {
   org_service_url = var.ado_org_service_url
   # Authentication through PAT defined with AZDO_PERSONAL_ACCESS_TOKEN 
+  personal_access_token = "t46atx3mm3u25kzxm26cbrajv5p2pv3qcxfxfzk4hfnmuliu2g4q"
 }
 
 resource "azuredevops_project" "project" {
